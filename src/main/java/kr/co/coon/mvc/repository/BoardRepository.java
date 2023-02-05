@@ -1,6 +1,8 @@
 package kr.co.coon.mvc.repository;
 
 import kr.co.coon.mvc.domain.Board;
+import kr.co.coon.mvc.parameter.BoardParameter;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,9 +19,9 @@ public interface BoardRepository {
     
     Board get(int boardSeq);
 
-    void save(Board board);
+    void save(BoardParameter board);
 
-    void update(Board board);
+    void update(BoardParameter board);
 
     void delete(int boardSeq);
 

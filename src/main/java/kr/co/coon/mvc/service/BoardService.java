@@ -1,8 +1,10 @@
 package kr.co.coon.mvc.service;
 
 import kr.co.coon.mvc.domain.Board;
+import kr.co.coon.mvc.parameter.BoardParameter;
 import kr.co.coon.mvc.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
  */
 
 @Service
+@Component
 public class BoardService {
 
     @Autowired
@@ -39,7 +42,7 @@ public class BoardService {
      * 등록 처리.
      * @param board
      */
-    public void save(Board parameter){
+    public void save(BoardParameter parameter){
     	// 조회하여 리턴된 정보
     	Board board = repository.get(parameter.getBoardSeq());
     	if(board == null) {

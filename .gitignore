@@ -68,5 +68,11 @@ local.properties
 .sts4-cache/
 
 .classpath
+.project
+.gitignore
+.settings/
+
+
+
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
