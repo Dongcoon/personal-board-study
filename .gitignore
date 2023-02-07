@@ -71,7 +71,7 @@ local.properties
 .project
 .gitignore
 .settings/
-/target/
+/target
 
 
 
