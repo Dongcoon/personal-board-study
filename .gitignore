@@ -67,11 +67,13 @@ local.properties
 # Spring Boot Tooling
 .sts4-cache/
 
-.classpath
-.project
-.gitignore
+*.classpath
+*.project
+*.gitignore
 .settings/
-/target
-.idea
+target/
+.idea/
+*.iml
+
 
 
