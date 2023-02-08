@@ -1,16 +1,18 @@
 package kr.co.coon.mvc.service;
 
-import kr.co.coon.mvc.domain.Board;
-import kr.co.coon.mvc.parameter.BoardParameter;
-import kr.co.coon.mvc.parameter.BoardSearchParameter;
-import kr.co.coon.mvc.repository.BoardRepository;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import kr.co.coon.framework.data.domain.PageRequestParameter;
+import kr.co.coon.mvc.domain.Board;
+import kr.co.coon.mvc.parameter.BoardParameter;
+import kr.co.coon.mvc.parameter.BoardSearchParameter;
+import kr.co.coon.mvc.repository.BoardRepository;
 
 /**
  * 게시판 서비스
@@ -26,10 +28,11 @@ public class BoardService {
 
     /**
      * 목록 처리.
+     * @param pageRequestParameter
      * @return
      */
-    public List<Board> getList(BoardSearchParameter parameter){
-        return repository.getList(parameter);
+    public List<Board> getList(PageRequestParameter<BoardSearchParameter> pageRequestParameter){
+        return repository.getList(pageRequestParameter);
     }
 
     /**

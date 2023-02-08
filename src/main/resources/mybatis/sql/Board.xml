@@ -11,11 +11,21 @@
         B.REG_DATE
     FROM T_BOARD B
     <where>
-    	<if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(keyword)">
-    	And B.TITLE LIKE CONCAT('%', #{keyword}, '%')
+    	<!-- 키워드 검색 -->
+    	<if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(parameter.keyword)">
+    	And B.TITLE LIKE CONCAT('%', #{parameter.keyword}, '%')
+    	</if>
+    	<!-- 게시판 종류 배열 검색 -->
+    	<if test="@org.apache.commons.lang3.ObjectUtils@isNotEmpty(parameter.boardTypes)">
+    	And B.BOARD_TYPE IN (
+    		<foreach collection="parameter.boardTypes" item="value" separator=",">
+    			#{value}
+    		</foreach>
+    	)
     	</if>
     </where>
     ORDER BY B.REG_DATE DESC
+    LIMIT #{pageRequest.limit}, #{pageRequest.offset}
     </select>
 
     <select id="get" parameterType="int" resultType="kr.co.coon.mvc.domain.Board">

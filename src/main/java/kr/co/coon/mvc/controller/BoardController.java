@@ -23,6 +23,8 @@ import io.swagger.annotations.ApiParam;
 import kr.co.coon.configuration.exception.BaseException;
 import kr.co.coon.configuration.http.BaseResponse;
 import kr.co.coon.configuration.http.BaseResponseCode;
+import kr.co.coon.framework.data.domain.MySQLPageRequest;
+import kr.co.coon.framework.data.domain.PageRequestParameter;
 import kr.co.coon.mvc.domain.Board;
 import kr.co.coon.mvc.parameter.BoardParameter;
 import kr.co.coon.mvc.parameter.BoardSearchParameter;
@@ -51,9 +53,16 @@ public class BoardController {
      */
     @GetMapping
     @ApiOperation(value = "목록 조회", notes = "게시물 목록 정보를 조회할 수 있습니다.")
-    public BaseResponse<List<Board>> getList(@ApiParam BoardSearchParameter parameter){
-    	logger.info("getList");
-        return new BaseResponse<List<Board>>(boardService.getList(parameter));
+    public BaseResponse<List<Board>> getList(
+    		@ApiParam BoardSearchParameter parameter,
+    		@ApiParam MySQLPageRequest pageRequest
+    		){
+    	
+    	logger.info("pageRequest : {}", pageRequest);
+    	PageRequestParameter<BoardSearchParameter> pageRequestParameter = 
+    			new PageRequestParameter<BoardSearchParameter>(pageRequest, parameter);
+    	
+        return new BaseResponse<List<Board>>(boardService.getList(pageRequestParameter));
     }
 
     /**

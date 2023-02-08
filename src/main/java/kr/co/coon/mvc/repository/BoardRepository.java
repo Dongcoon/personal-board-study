@@ -1,5 +1,6 @@
 package kr.co.coon.mvc.repository;
 
+import kr.co.coon.framework.data.domain.PageRequestParameter;
 import kr.co.coon.mvc.domain.Board;
 import kr.co.coon.mvc.parameter.BoardParameter;
 import kr.co.coon.mvc.parameter.BoardSearchParameter;
@@ -17,7 +18,7 @@ import java.util.Map;
 @Repository
 public interface BoardRepository {
 	
-    List<Board> getList(BoardSearchParameter parameter);
+    List<Board> getList(PageRequestParameter<BoardSearchParameter> pageRequestParameter);
     
     Board get(int boardSeq);
 
