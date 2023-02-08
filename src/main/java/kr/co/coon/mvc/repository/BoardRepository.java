@@ -2,6 +2,7 @@ package kr.co.coon.mvc.repository;
 
 import kr.co.coon.mvc.domain.Board;
 import kr.co.coon.mvc.parameter.BoardParameter;
+import kr.co.coon.mvc.parameter.BoardSearchParameter;
 
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +17,7 @@ import java.util.Map;
 @Repository
 public interface BoardRepository {
 	
-    List<Board> getList();
+    List<Board> getList(BoardSearchParameter parameter);
     
     Board get(int boardSeq);
 

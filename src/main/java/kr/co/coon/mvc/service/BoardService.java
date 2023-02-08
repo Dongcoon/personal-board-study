@@ -2,6 +2,7 @@ package kr.co.coon.mvc.service;
 
 import kr.co.coon.mvc.domain.Board;
 import kr.co.coon.mvc.parameter.BoardParameter;
+import kr.co.coon.mvc.parameter.BoardSearchParameter;
 import kr.co.coon.mvc.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,8 +28,8 @@ public class BoardService {
      * 목록 처리.
      * @return
      */
-    public List<Board> getList(){
-        return repository.getList();
+    public List<Board> getList(BoardSearchParameter parameter){
+        return repository.getList(parameter);
     }
 
     /**

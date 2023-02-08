@@ -25,7 +25,7 @@ public class BoardParameter {
     // 테스트용 생성자
 	public BoardParameter(String title, String contents) {
 		this.title = title;
-		this.contents = contents;
+		this.contents = contents;	
 	}
     
     
