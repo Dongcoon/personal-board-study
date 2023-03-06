@@ -49,6 +49,7 @@ public class BoardService {
      * @param board
      */
     public void save(BoardParameter parameter){
+        System.out.println("Jenkins-test1");
     	// 조회하여 리턴된 정보
     	Board board = repository.get(parameter.getBoardSeq());
     	if(board == null) {
